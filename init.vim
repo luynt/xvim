@@ -1,11 +1,27 @@
 set number
-
-
+set nohlsearch
+set encoding=utf-8
+filetype plugin on
+set autoindent
+set smartindent
+" UI configuration
+syntax on
+syntax enable
 
 call plug#begin()
 " Mutil Cusor 
 Plug 'terryma/vim-multiple-cursors'
+" Nerdtree
 Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
+
+" Auto complete
+Plug 'zchee/deoplete-jedi'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
+" Status Bar
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 
 call plug#end()
@@ -48,7 +64,11 @@ function! GotoJump()
     endif
   endif
 endfunction
-
+" Auto complate
+let g:deoplete#enable_at_startup = 1
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 " Mapping Leader
-nmap <Leader>j :call GotoJump()<CR>
-
+let mapleader = ","
+nnoremap <Leader>j :call GotoJump()<CR>
+nnoremap <Leader>mm :NERDCommenterToggle<CR>
