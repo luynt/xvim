@@ -16,6 +16,7 @@ set backupdir=~/tmp,/tmp
 set backupcopy=yes
 set backupskip=/tmp/*,$TMPDIR/*,$TMP/*,$TEMP/*
 set directory=/tmp
+set clipboard=unnamedplus
 
 call plug#begin()
 " Mutil Cusor 
@@ -147,6 +148,8 @@ autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
 " Mapping Leader
 let mapleader = ","
+vnoremap  <leader>y  "+y
+
 nnoremap <Leader>j :call GotoJump()<CR>
 " Open terminal
 nnoremap <Leader>at :call FloatTerm()<CR>
