@@ -1,5 +1,4 @@
 set number
-set nohlsearch
 set encoding=utf-8
 filetype plugin on
 set autoindent
@@ -7,6 +6,16 @@ set smartindent
 " UI configuration
 syntax on
 syntax enable
+set tabstop=2 shiftwidth=4 expandtab
+set autoread
+set autowrite
+set nobackup
+set nowb
+set noswapfile
+set backupdir=~/tmp,/tmp
+set backupcopy=yes
+set backupskip=/tmp/*,$TMPDIR/*,$TMP/*,$TEMP/*
+set directory=/tmp
 
 call plug#begin()
 " Mutil Cusor 
@@ -25,7 +34,10 @@ Plug 'vim-airline/vim-airline-themes'
 
 " UI themes
 Plug 'luynt/vim-hybrid-material'
+Plug 'majutsushi/tagbar'
 
+" Git
+Plug 'tpope/vim-fugitive'
 
 call plug#end()
 
@@ -142,3 +154,8 @@ nnoremap <Leader>at :call FloatTerm()<CR>
 nnoremap <Leader>an :call FloatTerm('"node"')<CR>
 " Open tig, yes TIG, A FLOATING TIGGGG!!!!!!
 nnoremap <Leader>ag :call FloatTerm('"tig"')<CR>
+"Tag function 
+nnoremap <Leader><F8> :TagbarToggle<CR>
+nnoremap <Leader>cm :NERDCommenterToggle<CR>
+"NERDTree
+nnoremap <Leader>nt :NERDTree<CR>
