@@ -28,6 +28,7 @@ Plug 'scrooloose/nerdcommenter'
 " Auto complete
 Plug 'zchee/deoplete-jedi'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 
 " Status Bar
 Plug 'vim-airline/vim-airline'
@@ -72,9 +73,9 @@ let g:hybrid_transparent_background = 1
 
 " Config NERDTree
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-autocmd vimenter * NERDTree
+"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+"autocmd vimenter * NERDTree
 
 " Jump recent files
 function! GotoJump()
@@ -162,3 +163,4 @@ nnoremap <Leader><F8> :TagbarToggle<CR>
 nnoremap <Leader>cm :NERDCommenterToggle<CR>
 "NERDTree
 nnoremap <Leader>nt :NERDTree<CR>
+nnoremap <Leader>gr :GoRun<CR>
