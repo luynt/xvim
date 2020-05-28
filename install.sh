@@ -15,6 +15,6 @@ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 nvim +PlugInstall
 
-$HOME_CONFIG/plugged/youcompleteme/plugged/youcompleteme/install.sh --go-completer
+$HOME_CONFIG/plugged/youcompleteme/install.sh  --go-completer
 
 
